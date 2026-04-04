@@ -1,0 +1,27 @@
+/* Importa a fonte Barlow do Google Fonts — usada em todo o projeto */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap');
+
+/* Reset geral — remove margens e paddings padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow', sans-serif;
+}
+
+/* Variáveis globais de cor — altere aqui para mudar o tema do projeto inteiro */
+:root {
+    --red: #e8000d;     /* cor de destaque vermelha */
+    --bg: #0a0a0a;      /* fundo principal preto */
+    --surface: #141414; /* fundo de cards e superfícies */
+    --border: #222;     /* cor das bordas */
+    --text: #f0f0f0;    /* cor do texto principal */
+    --muted: #666;      /* cor do texto secundário/apagado */
+}
+
+/* Estilo base do body — fundo escuro em todas as páginas */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}

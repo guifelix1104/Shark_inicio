@@ -1,0 +1,25 @@
+/* Centraliza todo o conteúdo da página no topo */
+body {
+    display: flex;
+    flex-direction: column; /* empilha os elementos verticalmente */
+    align-items: center;    /* centraliza horizontalmente */
+    justify-content: center; /* centraliza verticalmente */
+    padding-top: 0;
+    margin: 0;
+}
+
+/* Estilo do título principal */
+h1 {
+    color: #e0e0e0;         /* cinza claro */
+    font-size: 42px;
+    font-weight: 700;       /* negrito */
+    text-align: center;
+}
+
+/* Estilo do subtítulo/descrição */
+p {
+    color: #666;            /* cinza mais escuro para hierarquia visual */
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;       /* espaço entre o título e o parágrafo */
+}

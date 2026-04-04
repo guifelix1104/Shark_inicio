@@ -1,0 +1,151 @@
+/* Fundo da página de login */
+body {
+    background-color: var(--bg);
+}
+
+/* Container principal — divide a tela em dois lados */
+.login-page {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* ========================
+   LADO ESQUERDO — Logo e frase
+======================== */
+.login-left {
+    flex: 1; /* ocupa metade da tela */
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 60px;
+}
+
+/* Logo circular */
+.login-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+}
+
+/* Nome do projeto */
+.login-left h1 {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--text);
+}
+
+/* Frase de impacto */
+.login-left p {
+    color: var(--muted);
+    font-size: 15px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* ========================
+   LADO DIREITO — Formulário
+======================== */
+.login-right {
+    flex: 1; /* ocupa a outra metade da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+}
+
+/* Caixa do formulário */
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Título do formulário */
+.login-box h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* Subtítulo do formulário */
+.login-box > p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: -10px;
+}
+
+/* Grupo de label + input */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Label acima do input */
+.input-group label {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Campo de texto */
+.input-group input {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 14px 16px;
+    color: var(--text);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+/* Borda vermelha ao focar no input */
+.input-group input:focus {
+    border-color: var(--red);
+}
+
+/* Botão de entrar */
+.login-box button {
+    background: var(--red);
+    border: none;
+    border-radius: 4px;
+    padding: 14px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-top: 4px;
+}
+
+/* Efeito hover no botão */
+.login-box button:hover {
+    opacity: 0.85;
+}
+
+/* Link "Esqueceu a senha?" */
+.forgot {
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.forgot:hover {
+    color: var(--text);
+}
