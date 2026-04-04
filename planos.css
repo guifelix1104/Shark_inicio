@@ -1,0 +1,108 @@
+/* Container principal — limita a largura e centraliza o conteúdo da página */
+.planos-container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 80px 60px;
+}
+
+/* Label vermelho acima do título — padrão visual do projeto */
+.planos-container > h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+}
+
+/* Título principal da página */
+.planos-container > h3 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+/* Descrição abaixo do título */
+.planos-container > p {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 48px;
+}
+
+/* Card de plano — empilha os elementos internos verticalmente */
+.plano-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 280px;
+}
+
+/* Tag identificadora do plano — ex: PERSONAL, BLUEFIT */
+.plano-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+}
+
+/* Valor do plano em destaque */
+.plano-preco {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+}
+
+/* Texto /mês menor e apagado ao lado do valor */
+.plano-preco span {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+/* Lista de benefícios do plano — remove marcadores padrão */
+.plano-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Item individual da lista de benefícios */
+.plano-lista li {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Aviso de valor temporário — mais discreto com opacidade reduzida */
+.plano-obs {
+    font-size: 12px;
+    color: var(--muted);
+    opacity: 0.6;
+    margin-top: 4px;
+}
+
+/* Texto de ação no card — indica que o card é clicável */
+.plano-btn {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--red);
+    margin-top: 8px;
+}
+
+/* Remove o sublinhado padrão dos links que envolvem os cards */
+.card-link {
+    text-decoration: none;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .planos-container { padding: 48px 24px; }
+    .planos-container > h3 { font-size: 28px; }
+    .plano-preco { font-size: 32px; }
+}

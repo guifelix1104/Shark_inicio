@@ -137,15 +137,26 @@ body {
     opacity: 0.85;
 }
 
-/* Link "Esqueceu a senha?" */
-.forgot {
-    color: var(--muted);
-    font-size: 13px;
-    text-align: center;
-    cursor: pointer;
-    transition: color 0.2s;
-}
+/* MOBILE */
+@media (max-width: 768px) {
+    /* Empilha os dois lados verticalmente */
+    .login-page {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
 
-.forgot:hover {
-    color: var(--text);
+    /* Lado esquerdo menor */
+    .login-left {
+        padding: 40px 24px;
+        gap: 12px;
+    }
+
+    .login-left h1 { font-size: 24px; }
+    .login-logo { width: 80px; height: 80px; }
+
+    /* Lado direito com padding menor */
+    .login-right {
+        padding: 32px 24px;
+    }
 }

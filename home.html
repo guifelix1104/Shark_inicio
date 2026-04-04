@@ -16,13 +16,19 @@
 
         <!-- Subtítulo/descrição abaixo do título -->
         <p>Aqui você não aprende só a lutar — você se torna um de nós</p>
+
+        <!-- Barra de progresso de carregamento -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <span class="loading-text">Carregando...</span>
         
         <!-- Script JS da página -->
         <script>
-            // Aguarda 5 segundos e redireciona para o dashboard
             setTimeout(function() {
                 window.location.href = "dashboard.html";
-            }, 5000);
+            }, 2000);
+            document.getElementById("progressBar").style.animation = "fill 2s linear forwards";
         </script>
     </body>
 </html>

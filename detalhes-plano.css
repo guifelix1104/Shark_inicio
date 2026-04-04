@@ -1,0 +1,135 @@
+/* Container principal — empilha os blocos da página verticalmente com espaçamento entre eles */
+.detalhes-container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/* Cabeçalho do plano — exibe tag, título e preço empilhados */
+.detalhes-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Título grande do plano selecionado */
+.detalhes-header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+/* Corpo da página — duas colunas lado a lado (o que está incluso + informações gerais) */
+.detalhes-body {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap; /* em telas menores, empilha as colunas */
+}
+
+/* Coluna individual do corpo */
+.detalhes-info {
+    flex: 1;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Label vermelho acima de cada coluna */
+.detalhes-info h3 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+}
+
+/* Caixa do contrato — fundo escuro com borda, contém o texto, checkbox e botão */
+.contrato-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Label vermelho do bloco de contrato */
+.contrato-box h3 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+}
+
+/* Área de texto do contrato — scrollável, fundo mais escuro para destacar */
+.contrato-texto {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    white-space: pre-line; /* respeita as quebras de linha do texto */
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    max-height: 220px;
+    overflow-y: auto; /* adiciona scroll quando o texto é longo */
+}
+
+/* Label do checkbox — flex para alinhar o input com o texto */
+.contrato-check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Checkbox estilizado com a cor vermelha do tema */
+.contrato-check input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--red);
+    cursor: pointer;
+}
+
+/* Botão de confirmar — só fica ativo após marcar o checkbox */
+.btn-confirmar {
+    align-self: flex-start;
+    background: var(--red);
+    border: none;
+    border-radius: 4px;
+    padding: 14px 36px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+/* Estado desabilitado — opaco e cursor bloqueado enquanto o checkbox não for marcado */
+.btn-confirmar:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Efeito hover — só aplica quando o botão está ativo */
+.btn-confirmar:not(:disabled):hover {
+    opacity: 0.85;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .detalhes-container { padding: 48px 24px; }
+    .detalhes-header h1 { font-size: 28px; }
+    .contrato-box { padding: 24px; }
+    .btn-confirmar { width: 100%; text-align: center; }
+}

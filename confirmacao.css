@@ -1,0 +1,190 @@
+/* Container principal — centraliza tudo verticalmente */
+.confirmacao-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+}
+
+/* Ícone de check animado */
+.confirmacao-icone {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #0f2a0f;
+    border: 2px solid #4caf50;
+    color: #4caf50;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: aparecer 0.5s ease forwards;
+}
+
+@keyframes aparecer {
+    from { transform: scale(0); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+/* Label vermelho do título */
+.confirmacao-container h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--red);
+}
+
+/* Título principal */
+.confirmacao-container h3 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text);
+    margin-top: -16px;
+}
+
+/* Descrição */
+.confirmacao-container > p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 460px;
+}
+
+/* Caixa de resumo do plano contratado */
+.confirmacao-resumo {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+/* Label do resumo */
+.resumo-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+}
+
+/* Nome do plano */
+.resumo-plano {
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Valor do plano */
+.resumo-preco {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+/* Ciclo de cobrança */
+.resumo-ciclo {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* Caixa de próximos passos */
+.proximos-passos {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+}
+
+/* Label dos próximos passos */
+.passos-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+}
+
+/* Lista de próximos passos */
+.proximos-passos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.proximos-passos li {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Botões de ação */
+.confirmacao-acoes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Botão principal — ir para o dashboard */
+.btn-dashboard {
+    background: var(--red);
+    border: none;
+    border-radius: 4px;
+    padding: 14px 32px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.btn-dashboard:hover {
+    opacity: 0.85;
+}
+
+/* Botão secundário — área do aluno */
+.btn-aluno {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 14px 32px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-aluno:hover {
+    border-color: var(--text);
+    color: var(--text);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .confirmacao-container { padding: 48px 24px; }
+    .confirmacao-container h3 { font-size: 28px; }
+    .resumo-preco { font-size: 28px; }
+    .btn-dashboard, .btn-aluno { width: 100%; text-align: center; }
+}

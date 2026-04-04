@@ -1,0 +1,316 @@
+/* Container principal — limita largura e centraliza o conteúdo */
+.pagamento-container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 80px 60px;
+}
+
+/* Label vermelho acima do título */
+.pagamento-container > h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+}
+
+/* Título principal da página */
+.pagamento-container > h3 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+/* Descrição abaixo do título */
+.pagamento-container > p {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 48px;
+}
+
+/* Layout principal — resumo do pedido ao lado das formas de pagamento */
+.pagamento-layout {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    flex-wrap: wrap; /* em telas menores, empilha os blocos */
+}
+
+/* Caixa de resumo do pedido — exibe nome e valor do plano selecionado */
+.resumo-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 260px;
+    flex: 1;
+}
+
+/* Label do resumo */
+.resumo-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+}
+
+/* Nome do plano no resumo */
+.resumo-plano {
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Valor do plano em destaque */
+.resumo-preco {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+/* Informação de cobrança mensal */
+.resumo-ciclo {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* Bloco das formas de pagamento — ocupa mais espaço que o resumo */
+.formas-pagamento {
+    flex: 2;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Container das abas de pagamento */
+.tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Botão de aba — cartão, PIX ou boleto */
+.tab {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px 20px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Barlow', sans-serif;
+}
+
+/* Aba ativa ou com hover — borda vermelha e texto claro */
+.tab.active,
+.tab:hover {
+    border-color: var(--red);
+    color: var(--text);
+}
+
+/* Conteúdo de cada aba — exibido quando a aba está ativa */
+.tab-content {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Esconde o conteúdo das abas inativas */
+.tab-content.hidden {
+    display: none;
+}
+
+/* Grupo de input — label + campo empilhados */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Label do campo de input */
+.input-group label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* Campos de texto e select — estilo escuro padrão do projeto */
+.input-group input,
+.input-group select {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: var(--text);
+    font-size: 14px;
+    font-family: 'Barlow', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+/* Borda vermelha ao focar no campo */
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--red);
+}
+
+/* Fundo escuro nas opções do select */
+.input-group select option {
+    background: var(--bg);
+}
+
+/* Linha com dois inputs lado a lado — ex: validade e CVV */
+.input-row {
+    display: flex;
+    gap: 16px;
+}
+
+/* Cada input dentro da linha ocupa espaço igual */
+.input-row .input-group {
+    flex: 1;
+}
+
+/* Botão de finalizar pagamento ou gerar boleto */
+.btn-pagar {
+    background: var(--red);
+    border: none;
+    border-radius: 4px;
+    padding: 14px 36px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    font-family: 'Barlow', sans-serif;
+    align-self: flex-start;
+}
+
+/* Efeito hover no botão de pagamento */
+.btn-pagar:hover {
+    opacity: 0.85;
+}
+
+/* ========================
+   PIX
+======================== */
+/* Container do PIX — centraliza QR code, texto e chave */
+.pix-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+/* Placeholder do QR Code — será substituído pela imagem real futuramente */
+.pix-qr {
+    width: 160px;
+    height: 160px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* Instrução de uso do PIX */
+.pix-box p {
+    color: var(--muted);
+    font-size: 14px;
+    max-width: 320px;
+}
+
+/* Caixa com a chave PIX e botão de copiar */
+.pix-chave {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px 20px;
+}
+
+/* Texto da chave PIX */
+.pix-chave span {
+    color: var(--text);
+    font-size: 14px;
+}
+
+/* Botão de copiar a chave PIX */
+.pix-chave button {
+    background: var(--red);
+    border: none;
+    border-radius: 4px;
+    padding: 6px 16px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Barlow', sans-serif;
+}
+
+/* Aviso de tempo de confirmação do PIX */
+.pix-obs {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* ========================
+   BOLETO
+======================== */
+/* Container do boleto */
+.boleto-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Texto instrutivo do boleto */
+.boleto-box p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Destaque para informações importantes dentro do texto */
+.boleto-box strong {
+    color: var(--text);
+}
+
+/* Aviso de prazo de confirmação — mais discreto */
+.boleto-obs {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .pagamento-container { padding: 48px 24px; }
+    .pagamento-container > h3 { font-size: 28px; }
+    .resumo-preco { font-size: 28px; }
+    .tab-content { padding: 20px; }
+    .btn-pagar { width: 100%; text-align: center; }
+    .input-row { flex-direction: column; }
+}
