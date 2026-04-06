@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nível - Shark Camps</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/aluno.css">
+</head>
+<body>
+
+    <!-- Navbar com botão de voltar para a área do aluno -->
+    <nav>
+        <a href="dashboard.html" class="logo">
+            <img src="../fotos projetos/logo shark.jpeg" alt="Logo">
+            <span>SHARK CAMPS</span>
+        </a>
+        <ul>
+            <li><a href="aluno.html">← Voltar</a></li>
+        </ul>
+        <button class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+        <div class="aluno">
+            <a href="aluno.html" class="aluno-link">
+                <div class="aluno-avatar">A</div>
+                <span class="aluno-nome">Aluno</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Container da página de nível -->
+    <div class="aluno-container">
+        <h2>Nível</h2>
+        <h3>Sua evolução.</h3>
+        <p>Seu nível é calculado com base no seu tempo de treino.</p>
+
+        <!-- Cada nivel-box representa uma faixa de nível -->
+
+        <!-- Nível 1: Iniciante -->
+        <div class="nivel-box">
+            <span class="nivel-badge">Iniciante</span>
+            <p>0 — 3 meses de treino</p>
+        </div>
+
+        <!-- Nível 2: Intermediário -->
+        <div class="nivel-box">
+            <span class="nivel-badge">Intermediário</span>
+            <p>3 — 12 meses de treino</p>
+        </div>
+
+        <!-- Nível 3: Avançado -->
+        <div class="nivel-box">
+            <span class="nivel-badge">Avançado</span>
+            <p>1 — 3 anos de treino</p>
+        </div>
+
+        <!-- Nível 4: Elite -->
+        <div class="nivel-box">
+            <span class="nivel-badge">Elite</span>
+            <p>3+ anos de treino</p>
+        </div>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>

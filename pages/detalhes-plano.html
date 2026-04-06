@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Plano - Shark Camps</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/planos.css">
+    <link rel="stylesheet" href="../css/detalhes-plano.css">
+</head>
+<body>
+
+    <nav>
+        <a href="dashboard.html" class="logo">
+            <img src="../fotos projetos/logo shark.jpeg" alt="Logo">
+            <span>SHARK CAMPS</span>
+        </a>
+        <ul>
+            <li><a href="planos.html">← Voltar aos Planos</a></li>
+        </ul>
+        <button class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+        <div class="aluno">
+            <a href="aluno.html" class="aluno-link">
+                <div class="aluno-avatar">A</div>
+                <span class="aluno-nome">Aluno</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="detalhes-container">
+
+        <!-- Cabeçalho dinâmico do plano -->
+        <div class="detalhes-header">
+            <span class="plano-tag" id="plano-tag"></span>
+            <h1 id="plano-titulo"></h1>
+            <div class="plano-preco" id="plano-preco"></div>
+        </div>
+
+        <!-- Detalhes do plano -->
+        <div class="detalhes-body">
+
+            <div class="detalhes-info">
+                <h3>O que está incluso</h3>
+                <ul class="plano-lista" id="plano-lista"></ul>
+            </div>
+
+            <div class="detalhes-info">
+                <h3>Informações gerais</h3>
+                <ul class="plano-lista" id="plano-info"></ul>
+            </div>
+
+        </div>
+
+        <!-- Contrato -->
+        <div class="contrato-box">
+            <h3>Termos e Condições</h3>
+            <div class="contrato-texto" id="contrato-texto"></div>
+
+            <label class="contrato-check">
+                <input type="checkbox" id="aceite">
+                Li e aceito os termos e condições do plano selecionado.
+            </label>
+
+            <button class="btn-confirmar" id="btn-confirmar" disabled onclick="confirmar()">
+                CONFIRMAR E IR PARA PAGAMENTO
+            </button>
+        </div>
+
+    </div>
+
+    <script src="../js/planos-data.js"></script>
+    <script>
+        // Lê o parâmetro ?plano= da URL para saber qual plano foi selecionado
+        const params = new URLSearchParams(window.location.search);
+        const plano = params.get("plano");
+
+        // Se o plano da URL não existir, usa o CT como padrão
+        const dados = planosData[plano] || planosData.ct;
+
+        // Preenche os elementos da página com os dados do plano selecionado
+        document.getElementById("plano-tag").textContent = dados.tag;
+        document.getElementById("plano-titulo").textContent = dados.titulo;
+        document.getElementById("plano-preco").innerHTML = dados.precoHTML;
+        // Gera os itens da lista de benefícios dinamicamente
+        document.getElementById("plano-lista").innerHTML = dados.lista.map(i => `<li>${i}</li>`).join("");
+        // Gera os itens de informações gerais dinamicamente
+        document.getElementById("plano-info").innerHTML = dados.info.map(i => `<li>${i}</li>`).join("");
+        document.getElementById("contrato-texto").innerText = dados.contrato;
+
+        // Habilita o botão de confirmar somente quando o checkbox for marcado
+        document.getElementById("aceite").addEventListener("change", function() {
+            document.getElementById("btn-confirmar").disabled = !this.checked;
+        });
+
+        // Redireciona para a página de pagamento passando o plano via URL
+        function confirmar() {
+            window.location.href = `pagamento.html?plano=${plano}`;
+        }
+    </script>
+    <script src="../js/script.js"></script>
+
+</body>
+</html>

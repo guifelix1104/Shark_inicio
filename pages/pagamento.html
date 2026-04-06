@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento - Shark Camps</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/pagamento.css">
+</head>
+<body>
+
+    <nav>
+        <a href="dashboard.html" class="logo">
+            <img src="../fotos projetos/logo shark.jpeg" alt="Logo">
+            <span>SHARK CAMPS</span>
+        </a>
+        <ul>
+            <li><a href="planos.html">← Voltar aos Planos</a></li>
+        </ul>
+        <button class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+        <div class="aluno">
+            <a href="aluno.html" class="aluno-link">
+                <div class="aluno-avatar">A</div>
+                <span class="aluno-nome">Aluno</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="pagamento-container">
+
+        <h2>Pagamento</h2>
+        <h3>Quase lá.</h3>
+        <p>Escolha a forma de pagamento e finalize sua inscrição.</p>
+
+        <div class="pagamento-layout">
+
+            <!-- Resumo do plano -->
+            <div class="resumo-box">
+                <span class="resumo-label">RESUMO DO PEDIDO</span>
+                <div class="resumo-plano" id="resumo-plano"></div>
+                <div class="resumo-preco" id="resumo-preco"></div>
+                <span class="resumo-ciclo">Cobrança mensal</span>
+            </div>
+
+            <!-- Formas de pagamento -->
+            <div class="formas-pagamento">
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab active" onclick="trocarTab('cartao', this)">💳 Cartão de Crédito</button>
+                    <button class="tab" onclick="trocarTab('pix', this)">⚡ PIX</button>
+                    <button class="tab" onclick="trocarTab('boleto', this)">🧾 Boleto</button>
+                </div>
+
+                <!-- Cartão de Crédito -->
+                <div class="tab-content" id="tab-cartao">
+                    <div class="input-group">
+                        <label>Número do Cartão</label>
+                        <input type="text" placeholder="0000 0000 0000 0000" maxlength="19">
+                    </div>
+                    <div class="input-group">
+                        <label>Nome no Cartão</label>
+                        <input type="text" placeholder="Como está no cartão">
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Validade</label>
+                            <input type="text" placeholder="MM/AA" maxlength="5">
+                        </div>
+                        <div class="input-group">
+                            <label>CVV</label>
+                            <input type="text" placeholder="000" maxlength="3">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Parcelas</label>
+                        <select>
+                            <option>1x sem juros</option>
+                            <option>2x sem juros</option>
+                            <option>3x sem juros</option>
+                        </select>
+                    </div>
+                    <button class="btn-pagar" onclick="finalizar()">FINALIZAR PAGAMENTO</button>
+                </div>
+
+                <!-- PIX -->
+                <div class="tab-content hidden" id="tab-pix">
+                    <div class="pix-box">
+                        <div class="pix-qr">QR CODE</div>
+                        <p>Escaneie o QR Code com o app do seu banco ou copie a chave PIX abaixo.</p>
+                        <div class="pix-chave">
+                            <span>contato@sharkcamps.com</span>
+                            <button onclick="copiarPix()">Copiar</button>
+                        </div>
+                        <span class="pix-obs">O pagamento é confirmado em até 1 minuto.</span>
+                    </div>
+                </div>
+
+                <!-- Boleto -->
+                <div class="tab-content hidden" id="tab-boleto">
+                    <div class="boleto-box">
+                        <p>Clique no botão abaixo para gerar seu boleto. O vencimento é em <strong>3 dias úteis</strong>.</p>
+                        <p class="boleto-obs">Após o pagamento, a confirmação pode levar até 2 dias úteis.</p>
+                        <button class="btn-pagar" onclick="finalizar()">GERAR BOLETO</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/planos-data.js"></script>
+    <script>
+        // Lê o parâmetro ?plano= da URL para identificar qual plano foi escolhido
+        const params = new URLSearchParams(window.location.search);
+        const plano = params.get("plano");
+
+        // Se o plano da URL não existir, usa o CT como padrão
+        const dados = planosData[plano] || planosData.ct;
+
+        // Preenche o resumo do pedido com o nome e valor do plano
+        document.getElementById("resumo-plano").textContent = dados.nome;
+        document.getElementById("resumo-preco").textContent = dados.preco;
+
+        // Troca o conteúdo visível ao clicar em uma aba (cartão, PIX ou boleto)
+        function trocarTab(tab, btn) {
+            // Esconde todos os conteúdos de aba
+            document.querySelectorAll(".tab-content").forEach(el => el.classList.add("hidden"));
+            // Remove o estado ativo de todos os botões de aba
+            document.querySelectorAll(".tab").forEach(el => el.classList.remove("active"));
+            // Exibe o conteúdo da aba clicada e marca o botão como ativo
+            document.getElementById("tab-" + tab).classList.remove("hidden");
+            btn.classList.add("active");
+        }
+
+        // Redireciona para a página de confirmação passando o plano via URL
+        function finalizar() {
+            window.location.href = `confirmacao.html?plano=${plano}`;
+        }
+
+        // Copia a chave PIX para a área de transferência e exibe confirmação
+        function copiarPix() {
+            navigator.clipboard.writeText("contato@sharkcamps.com");
+            alert("Chave PIX copiada!");
+        }
+    </script>
+    <script src="../js/script.js"></script>
+
+</body>
+</html>
