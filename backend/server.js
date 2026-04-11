@@ -10,6 +10,9 @@ const pool = require('./db/db.js');
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
+const authMiddleware = require('./middleware/authMiddleware');
+app.use('/dashboard', authMiddleware);
+
 app.get('/test', async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT 1');
