@@ -4,52 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shark Camps</title>
-    <!-- Estilos globais do projeto (fontes, cores, reset) -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Estilos específicos da página de login -->
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 
-    <!-- Container principal que divide a tela em dois lados -->
     <div class="login-page">
 
-        <!-- Lado esquerdo — exibe a logo e a frase de impacto -->
         <div class="login-left">
             <img src="fotos projetos/logo shark.jpeg" alt="Shark Camps" class="login-logo">
             <h1>SHARK CAMPS</h1>
             <p>Aqui você não aprende só a lutar —<br>você se torna um de nós.</p>
         </div>
 
-        <!-- Lado direito — formulário de login -->
         <div class="login-right">
             <div class="login-box">
                 <h2>Bem-vindo de volta</h2>
                 <p>Faça login para continuar</p>
 
-                <!-- Campo de usuário -->
                 <div class="input-group">
-                    <label>Usuário</label>
-                    <input type="text" placeholder="Digite seu usuário">
+                    <label>Email</label>
+                    <input type="text" id="email" placeholder="Digite seu email">
                 </div>
 
-                <!-- Campo de senha -->
                 <div class="input-group">
                     <label>Senha</label>
-                    <input type="password" placeholder="Digite sua senha">
+                    <input type="password" id="senha" placeholder="Digite sua senha">
                 </div>
 
-                <!-- Botão que aciona o script de login -->
-                <button>ENTRAR</button>
+                <button onclick="fazerLogin()">ENTRAR</button>
 
-                <!-- Link para recuperação de senha (futuramente funcional) -->
                 <span class="forgot">Esqueceu a senha?</span>
             </div>
         </div>
 
     </div>
 
-    <!-- Script responsável pela lógica de login -->
     <script src="js/script.js"></script>
 </body>
 </html>

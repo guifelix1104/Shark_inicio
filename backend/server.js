@@ -7,6 +7,8 @@ app.use(cors());
 app.use(express.json());
 
 const pool = require('./db/db.js');
+const authRoutes = require('./routes/auth');
+app.use('/auth', authRoutes);
 
 app.get('/test', async (req, res) => {
   try {

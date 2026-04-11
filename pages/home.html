@@ -25,9 +25,11 @@
         
         <!-- Script JS da página -->
         <script>
+            // Aguarda 2 segundos e redireciona para o dashboard
             setTimeout(function() {
                 window.location.href = "dashboard.html";
             }, 2000);
+            // Inicia a animação da barra de progresso sincronizada com o tempo de redirecionamento
             document.getElementById("progressBar").style.animation = "fill 2s linear forwards";
         </script>
     </body>

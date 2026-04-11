@@ -1,30 +1,29 @@
-// Seleciona o botão "Entrar" no HTML
-const botao = document.querySelector("button");
+// Função de login conectada ao backend
+async function fazerLogin() {
+  const email = document.getElementById('email').value;
+  const senha = document.getElementById('senha').value;
 
-// Aguarda o clique no botão para executar a função de login
-botao.addEventListener("click", function () {
+  try {
+    const res = await fetch('http://localhost:3001/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password: senha })
+    });
 
-    // Captura o valor digitado no campo de usuário
-    const usuario = document.querySelector('input[type="text"]').value;
+    const data = await res.json();
 
-    // Captura o valor digitado no campo de senha
-    const senha = document.querySelector('input[type="password"]').value;
-
-    // Credenciais válidas para comparação (futuramente virão de um banco de dados)
-    const userCorreto = "admin";
-    const senhaCorreta = "1234";
-
-    // Verifica se o usuário e a senha digitados estão corretos
-    if (usuario === userCorreto && senha === senhaCorreta) {
-        // Se correto, exibe mensagem de sucesso e redireciona para a página home
-        alert("Login realizado com sucesso!");
-        window.location.href = "pages/home.html";
+    if (res.ok) {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('name', data.name);
+      localStorage.setItem('role', data.role);
+      window.location.href = 'pages/dashboard.html';
     } else {
-        // Se incorreto, exibe mensagem de erro
-        alert("Usuário ou senha incorretos!");
+      alert(data.error);
     }
-
-});
+  } catch (err) {
+    alert('Erro ao conectar com o servidor');
+  }
+}
 
 // Abre e fecha o menu mobile ao clicar no botão hamburguer
 // Usada em todas as páginas que têm navbar
