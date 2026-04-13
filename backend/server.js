@@ -23,32 +23,35 @@ const pool = require('./db/db.js');
 const authRoutes = require('./routes/auth');
 
 // Registra as rotas de autenticação no caminho /auth
-// Ex: POST /auth/login, POST /auth/register
 app.use('/auth', authRoutes);
 
 // Importa o middleware que verifica se o usuário está autenticado
 const authMiddleware = require('./middleware/authMiddleware');
 
 // Protege todas as rotas que começam com /dashboard
-// Qualquer requisição para /dashboard só passa se tiver um token válido
 app.use('/dashboard', authMiddleware);
+
+// Importa as rotas de pedidos da loja
+const orderRoutes = require('./routes/orders');
+
+// Protege as rotas de pedidos com o middleware JWT
+// Só usuários logados podem fazer pedidos
+app.use('/orders', authMiddleware, orderRoutes);
 
 // Rota de teste — verifica se o servidor consegue se comunicar com o banco de dados
 app.get('/test', async (req, res) => {
   try {
-    // Executa uma query simples para testar a conexão
     const [rows] = await pool.query('SELECT 1');
     res.json({ message: 'Banco conectado com sucesso!' });
   } catch (err) {
-    // Se der erro, retorna o status 500 (erro interno) com a mensagem do erro
     res.status(500).json({ error: err.message });
   }
 });
 
-// Define a porta do servidor — usa a variável de ambiente PORT ou 3001 como padrão
+// Define a porta do servidor
 const PORT = process.env.PORT || 3001;
 
-// Inicia o servidor e exibe uma mensagem no terminal quando estiver pronto
+// Inicia o servidor
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
