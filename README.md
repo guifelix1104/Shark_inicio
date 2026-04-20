@@ -36,4 +36,4 @@ Tabelas criadas:
 Estudante de Análise e Desenvolvimento de Sistemas — UNIP  
 Buscando primeiro estágio em desenvolvimento web
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Guilherme%20Felix-blue)](https://www.linkedin.com/in/guilherme-felix)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Guilherme%20Felix-blue)](https://www.linkedin.com/in/guilherme-felix-b47a42340/)
