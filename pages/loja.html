@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja — Shark Camps</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/loja.css">
+</head>
+<body>
+
+    <nav>
+        <a href="dashboard.html" class="logo">
+            <img src="../fotos projetos/logo shark.jpeg" alt="Logo">
+            <span>SHARK CAMPS</span>
+        </a>
+
+        <ul>
+            <li><a href="dashboard.html">Início</a></li>
+            <li><a href="loja.html">Loja</a></li>
+            <li><a href="planos.html">Planos</a></li>
+        </ul>
+
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="aluno">
+            <a href="aluno.html" class="aluno-link">
+                <div class="aluno-avatar">A</div>
+                <span class="aluno-nome">Aluno</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="loja-hero">
+        <h1>SHARK <span>STORE</span></h1>
+        <p>Vista a marca. Represente o time.</p>
+    </section>
+
+    <section class="loja-filtros">
+        <button class="filtro ativo" onclick="filtrar('todos')">Todos</button>
+        <button class="filtro" onclick="filtrar('regata')">Regatas</button>
+        <button class="filtro" onclick="filtrar('oversize')">Oversize</button>
+        <button class="filtro" onclick="filtrar('moletom')">Moletom</button>
+    </section>
+
+    <section class="loja-produtos" id="produtos">
+
+        <div class="produto-card" data-tipo="regata">
+            <div class="produto-img">
+                <div class="produto-placeholder">
+                    <span>REGATA</span>
+                    <small>SHARK CAMPS</small>
+                </div>
+            </div>
+            <div class="produto-info">
+                <span class="produto-tag">Regata</span>
+                <h3>Regata Shark Classic</h3>
+                <p class="produto-preco">R$ 89,90</p>
+                <button onclick="abrirModal('Regata Shark Classic', 'regata', 89.90)">Encomendar</button>
+            </div>
+        </div>
+
+        <div class="produto-card" data-tipo="oversize">
+            <div class="produto-img">
+                <div class="produto-placeholder">
+                    <span>OVERSIZE</span>
+                    <small>SHARK CAMPS</small>
+                </div>
+            </div>
+            <div class="produto-info">
+                <span class="produto-tag">Oversize</span>
+                <h3>Camiseta Oversize Shark</h3>
+                <p class="produto-preco">R$ 119,90</p>
+                <button onclick="abrirModal('Camiseta Oversize Shark', 'oversize', 119.90)">Encomendar</button>
+            </div>
+        </div>
+
+        <div class="produto-card" data-tipo="moletom">
+            <div class="produto-img">
+                <div class="produto-placeholder">
+                    <span>MOLETOM</span>
+                    <small>SHARK CAMPS</small>
+                </div>
+            </div>
+            <div class="produto-info">
+                <span class="produto-tag">Moletom</span>
+                <h3>Moletom Shark Premium</h3>
+                <p class="produto-preco">R$ 199,90</p>
+                <button onclick="abrirModal('Moletom Shark Premium', 'moletom', 199.90)">Encomendar</button>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-fechar" onclick="fecharModal()">✕</button>
+            <h2 id="modalNome"></h2>
+            <p id="modalPreco"></p>
+
+            <div class="modal-campo">
+                <label>Cor</label>
+                <div class="cores">
+                    <button class="cor" style="background:#1a1a1a" data-cor="Preto" onclick="selecionarCor(this)"></button>
+                    <button class="cor" style="background:#E53935" data-cor="Vermelho" onclick="selecionarCor(this)"></button>
+                    <button class="cor" style="background:#ffffff; border: 2px solid #ccc" data-cor="Branco" onclick="selecionarCor(this)"></button>
+                    <button class="cor" style="background:#424242" data-cor="Cinza" onclick="selecionarCor(this)"></button>
+                </div>
+                <span id="corSelecionada" style="font-size:12px; color:#888">Nenhuma cor selecionada</span>
+            </div>
+
+            <div class="modal-campo">
+                <label>Tamanho</label>
+                <div class="tamanhos">
+                    <button class="tamanho" onclick="selecionarTamanho(this)">P</button>
+                    <button class="tamanho" onclick="selecionarTamanho(this)">M</button>
+                    <button class="tamanho" onclick="selecionarTamanho(this)">G</button>
+                    <button class="tamanho" onclick="selecionarTamanho(this)">GG</button>
+                </div>
+            </div>
+
+            <div class="modal-campo">
+                <label>Observacao</label>
+                <textarea id="observacao" placeholder="Alguma observacao sobre o pedido?"></textarea>
+            </div>
+
+            <button class="btn-encomendar" onclick="fazerPedido()">CONFIRMAR ENCOMENDA</button>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/loja.js"></script>
+</body>
+</html>
